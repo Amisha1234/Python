@@ -1,0 +1,33 @@
+Mr. Vincent works in a door mat manufacturing company. One day, he designed a new door mat with the following specifications:
+
+Mat size must be N X M. (N is an odd natural number, and M is 3 times N.)
+The design should have 'WELCOME' written in the center.
+The design pattern should only use |, . and - characters.
+
+For example:
+INPUT: 9 27
+OUTPUT:
+------------.|.------------
+---------.|..|..|.---------
+------.|..|..|..|..|.------
+---.|..|..|..|..|..|..|.---
+----------WELCOME----------
+---.|..|..|..|..|..|..|.---
+------.|..|..|..|..|.------
+---------.|..|..|.---------
+------------.|.------------
+
+
+CODE:
+N,M=[int(N) for N in input().split()]   
+L='|'
+D='.'
+H='-'
+#Top
+for i in range(N//2):
+    print(((D+L+D)*i).rjust((M//2)-1,'-')+D+L+D+((D+L+D)*i).ljust((M//2)-1,'-'))
+#Middle
+print ('WELCOME'.center(M,'-'))
+#Bottom
+for i in range(N//2):
+    print(((D+L+D)*((N//2)-i-1)).rjust((M//2)-1,'-')+D+L+D+((D+L+D)*((N//2)-i-1)).ljust((M//2)-1,'-'))
